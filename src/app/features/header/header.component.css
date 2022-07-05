@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+}
+
+.left {
+  width: 20%;
+  align-self: flex-start;
+}
+
+.right {
+  width: 100%;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+}

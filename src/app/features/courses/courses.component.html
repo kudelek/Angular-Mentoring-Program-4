@@ -1,2 +1,8 @@
-<p>courses works!</p>
-<div>test</div>
+<app-header>
+  <app-button *ngIf="isLoggedIn" iconName="edit">
+  </app-button>
+  <div *ngIf="isLoggedIn">
+    <span>Login</span>
+  </div>
+</app-header>
+<app-course-card></app-course-card>

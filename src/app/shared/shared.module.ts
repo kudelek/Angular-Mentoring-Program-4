@@ -1,13 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomButtonComponent } from './custom-button/custom-button.component';
+import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonComponent } from './components';
 
-const COMPONENTS: [] = [];
+const COMPONENTS: Array<any> = [ButtonComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS, CustomButtonComponent],
+  declarations: [...COMPONENTS],
   imports: [
-    CommonModule, ...COMPONENTS
-  ]
+    CommonModule,
+    FontAwesomeModule
+  ],
+  exports: [...COMPONENTS]
 })
 export class SharedModule { }
