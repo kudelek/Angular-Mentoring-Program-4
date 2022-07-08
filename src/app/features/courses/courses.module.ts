@@ -4,12 +4,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../../shared/shared.module';
 import { CourseCardModule } from '../course-card/course-card.module';
 import { HeaderComponent } from '../header/header.component';
+import { InfoComponent } from '../info/info.component';
 import { CoursesComponent } from './courses.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
-    HeaderComponent
+    HeaderComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,

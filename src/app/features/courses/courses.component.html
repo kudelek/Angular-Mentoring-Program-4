@@ -1,8 +1,18 @@
 <app-header>
-  <app-button *ngIf="isLoggedIn" iconName="edit">
-  </app-button>
+  <app-button (click)="onLogInOut()" [buttonText]="!isLoggedIn ? 'Login' : 'Logout'"></app-button>
   <div *ngIf="isLoggedIn">
-    <span>Login</span>
+    <span class="username">dummyUserName</span>
   </div>
 </app-header>
-<app-course-card></app-course-card>
+<div *ngIf="courses.length > 0">
+  <div class="courses-list" *ngFor="let course of courses">
+    <app-course-card (delete)="onCourseDelete()" (edit)="onCourseEdit()" (show)="onShowCourse()" [course]="course">
+    </app-course-card>
+  </div>
+</div>
+<div *ngIf="courses.length === 0">
+  <app-info [title]="infoTitle" [text]="infoText">
+    <app-button (click)="onAddCourse()" buttonText="Add a new course">
+    </app-button>
+  </app-info>
+</div>
