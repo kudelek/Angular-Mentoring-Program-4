@@ -1,2 +1,5 @@
-<p>info works!</p>
-<fa-icon [icon]="faCoffee"></fa-icon>
+<div class="info-container">
+  <h1>{{title}}</h1>
+  <p [innerHTML]="text"></p>
+  <ng-content></ng-content>
+</div>
