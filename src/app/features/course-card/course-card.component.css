@@ -1,0 +1,30 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border: black solid 1px;
+  margin: 10px;
+}
+
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+}
+
+.title {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.description {
+  margin: 5px;
+}
+
+.card-buttons {
+  margin: 10px;
+  display: flex;
+  flex-flow: row;
+}
