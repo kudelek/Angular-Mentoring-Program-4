@@ -1,0 +1,19 @@
+
+button {
+  margin: 5px;
+  border: 2px black solid;
+  background-color: #eee;
+}
+
+button:focus {
+  background-color: #ddd;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+button:active {
+  background-color: #bbb;
+}
