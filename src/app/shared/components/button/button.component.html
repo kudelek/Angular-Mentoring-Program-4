@@ -1,14 +1,6 @@
-<button>
-  <div class="icon">
-    <div *ngIf="iconName=='edit'">
-      <fa-icon [icon]="faPencil"></fa-icon>
-    </div>
-    <div *ngIf="iconName=='delete'">
-      <fa-icon [icon]="faTrashcan"></fa-icon>
-    </div>
-    <div *ngIf="iconName=='close'">
-      <fa-icon [icon]="faX"></fa-icon>
-    </div>
+<button type="button" (click)="onClick($event)">
+  <div *ngIf="iconName.length > 0" class="icon">
+    <fa-icon [icon]="getIcon(iconName)"></fa-icon>
   </div>
   {{buttonText}}
 </button>
