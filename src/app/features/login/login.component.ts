@@ -12,11 +12,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isEmailFilled: boolean = true;
-  isPasswordFilled: boolean = true;
+  showEmailRequired: boolean = false;
+  showPasswordRequired: boolean = false;
 
-  onChange(value: string) {
-    console.log(value,'asdf')
+  data: any = {
+    email: '',
+    password: ''
+  }
+
+  onChangeEmail(value: string) {
+    this.data.email = typeof value === "string" ? value : this.data.email;
+    console.log('data', this.data);
+  }
+
+  onChangePassword(value: string) {
+    this.data.password = typeof value === "string" ? value : this.data.password;
+    console.log('data', this.data);
   }
 
 }

@@ -1,8 +1,8 @@
 <label>
   <span>{{inputLabel}}</span>
-  <input [attr.type]="inputType" [attr.required]="isRequired" [attr.placeholder]="inputPlaceholder"
-    (input)="input.value=getValue($event)" [value]="input.value" />
-  <div *ngIf="!isValid" class="required">
+  <input [attr.type]="inputType" [attr.required]="required" [attr.placeholder]="inputPlaceholder"
+    (input)="emitEvent($event)" [value]="value" />
+  <div *ngIf="showRequired" class="required">
     {{requiredText}}
   </div>
 </label>

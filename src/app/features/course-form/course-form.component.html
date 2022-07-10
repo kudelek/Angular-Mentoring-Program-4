@@ -3,7 +3,7 @@
     <div class="title-create">
       <span>Title</span>
       <div class="create">
-        <input />
+        <app-input></app-input>
         <app-button buttonText="Create course"></app-button>
       </div>
     </div>
@@ -20,16 +20,14 @@
         </div>
         <div class="add-author-create">
           <div class="add-author-name">
-            <span>Author name</span>
-            <input />
+            <app-input inputLabel="Author name"></app-input>
           </div>
           <app-button buttonText="Create author"></app-button>
         </div>
       </div>
       <div class="duration">
         <div class="duration-title">Duration</div>
-        <span>Duration</span>
-        <input />
+        <app-input inputLabel="Duration"></app-input>
         <span class="duration-display">
           Duration: {{course.duration}} hours
         </span>

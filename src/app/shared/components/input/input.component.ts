@@ -12,10 +12,11 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  input: any = {name: '', value: ''};
+  @Input()
+  value: string = '';
 
   @Input()
-  isRequired?: boolean = false;
+  required: boolean = false;
 
   @Input()
   inputLabel?: string;
@@ -30,13 +31,12 @@ export class InputComponent implements OnInit {
   requiredText?: string;
 
   @Input()
-  isValid?: boolean;
+  showRequired?: boolean;
 
 
   @Output() change: any = new EventEmitter();
 
-  getValue(event: Event): string {
-    this.change.emit(event.target as HTMLInputElement);
-    return (event.target as HTMLInputElement).value;
+  emitEvent(event: Event) {
+    this.change.emit((event.target as HTMLInputElement).value);
   }
 }

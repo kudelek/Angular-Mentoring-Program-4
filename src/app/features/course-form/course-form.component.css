@@ -4,7 +4,8 @@
   border: 1px black solid;
 }
 
-.title-description-create {
+app-input {
+  margin: 0px;
 }
 
 .title-create {
@@ -45,11 +46,6 @@
 .add-author-create {
   display: flex;
   flex-flow: row;
-}
-
-.add-author-name {
-  display: flex;
-  flex-flow: column;
 }
 
 app-button {

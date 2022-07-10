@@ -3,26 +3,17 @@
     <div class="login-title">Login</div>
     <div class="login-form">
       <div class="login-email">
-        <label>
-          <span>Email</span>
-          <input type="text" required />
-          <div *ngIf="!isEmailFilled" class="required">
-            Email is required
-          </div>
-        </label>
+        <app-input (change)="onChangeEmail($event)" inputLabel="Email" [required]="true"
+          [showRequired]="showEmailRequired" requiredText="Email is required" [value]="data.email">
+        </app-input>
       </div>
       <div class="login-password">
-        <label>
-          <span>Password</span>
-          <input type="text" required />
-          <div *ngIf="!isPasswordFilled" class="required">
-            Password is required
-          </div>
-        </label>
+        <app-input (change)="onChangePassword($event)" inputLabel="Password" [required]="true"
+          [showRequired]="showPasswordRequired" requiredText="Password is required">
+        </app-input>
       </div>
       <app-button buttonText="Login" type="submit"></app-button>
     </div>
     <div class="login-message">If you don't have an account, you can <a href="">Register</a></div>
-    <app-input (change)="onChange($event)" inputLabel="Email"></app-input>
   </form>
 </div>
