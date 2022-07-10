@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ButtonComponent } from './components';
+import { ButtonComponent, SearchComponent } from './components';
+import { InputComponent } from './components/input/input.component';
+import { ValidatorDirective } from './directives/validator.directive';
 
-const COMPONENTS: Array<any> = [ButtonComponent];
+const COMPONENTS: Array<any> = [ButtonComponent, SearchComponent, InputComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ValidatorDirective, InputComponent],
   imports: [
     CommonModule,
     FontAwesomeModule
