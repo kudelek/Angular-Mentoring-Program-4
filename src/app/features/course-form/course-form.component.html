@@ -1,0 +1,52 @@
+<div class="form-container">
+  <section class="title-description-create">
+    <div class="title-create">
+      <span>Title</span>
+      <div class="create">
+        <input />
+        <app-button buttonText="Create course"></app-button>
+      </div>
+    </div>
+    <div class="description">
+      <span>Description</span>
+      <input />
+    </div>
+  </section>
+  <div class="authors">
+    <div class="authors-left">
+      <div class="add-authors">
+        <div class="add-authors-title">
+          Add authors
+        </div>
+        <div class="add-author-create">
+          <div class="add-author-name">
+            <span>Author name</span>
+            <input />
+          </div>
+          <app-button buttonText="Create author"></app-button>
+        </div>
+      </div>
+      <div class="duration">
+        <div class="duration-title">Duration</div>
+        <span>Duration</span>
+        <input />
+        <span class="duration-display">
+          Duration: {{course.duration}} hours
+        </span>
+      </div>
+
+    </div>
+    <div class="authors-right">
+      <div class="authors-list">
+        <span>Authors list</span>
+        <div *ngFor="let author of authorsList">
+          <div class="author">
+            <div class="author-left">
+              {{author.name}}
+            </div>
+            <app-button buttonText="Delete author"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

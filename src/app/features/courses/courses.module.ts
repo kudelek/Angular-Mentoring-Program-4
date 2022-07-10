@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../../shared/shared.module';
 import { CourseCardModule } from '../course-card/course-card.module';
+import { CourseFormComponent } from '../course-form/course-form.component';
 import { HeaderComponent } from '../header/header.component';
 import { InfoComponent } from '../info/info.component';
+import { SearchComponent } from '../search/search.component';
 import { CoursesComponent } from './courses.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     HeaderComponent,
-    InfoComponent
+    InfoComponent,
+    SearchComponent,
+    CourseFormComponent
   ],
   imports: [
     CommonModule,

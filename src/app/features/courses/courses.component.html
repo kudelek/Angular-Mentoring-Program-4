@@ -4,12 +4,14 @@
     <span class="username">dummyUserName</span>
   </div>
 </app-header>
-<div *ngIf="courses.length > 0">
+<app-search placeholder="Search for courses"></app-search>
+<!-- <div *ngIf="courses.length > 0">
   <div class="courses-list" *ngFor="let course of courses">
     <app-course-card (delete)="onCourseDelete()" (edit)="onCourseEdit()" (show)="onShowCourse()" [course]="course">
     </app-course-card>
   </div>
-</div>
+</div> -->
+<app-course-form></app-course-form>
 <div *ngIf="courses.length === 0">
   <app-info [title]="infoTitle" [text]="infoText">
     <app-button (click)="onAddCourse()" buttonText="Add a new course">
