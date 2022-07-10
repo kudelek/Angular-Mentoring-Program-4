@@ -1,0 +1,19 @@
+label {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  padding: 10px;
+}
+
+label span {
+  margin: 5px
+}
+
+input {
+  margin: 5px;
+}
+
+.required {
+  color: red;
+  font-size: 0.75em;
+}
