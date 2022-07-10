@@ -6,7 +6,7 @@ import { CourseCardModule } from '../course-card/course-card.module';
 import { CourseFormComponent } from '../course-form/course-form.component';
 import { HeaderComponent } from '../header/header.component';
 import { InfoComponent } from '../info/info.component';
-import { SearchComponent } from '../search/search.component';
+import { LoginComponent } from '../login/login.component';
 import { CoursesComponent } from './courses.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { CoursesComponent } from './courses.component';
     CoursesComponent,
     HeaderComponent,
     InfoComponent,
-    SearchComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

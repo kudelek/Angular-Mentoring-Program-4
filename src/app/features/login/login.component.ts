@@ -12,4 +12,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isEmailFilled: boolean = true;
+  isPasswordFilled: boolean = true;
+
+  onChange(value: string) {
+    console.log(value,'asdf')
+  }
+
 }
