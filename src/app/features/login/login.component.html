@@ -1,15 +1,15 @@
 <div class="login-container">
-  <form class="login">
+  <form class="login" [formGroup]="loginForm">
     <div class="login-title">Login</div>
     <div class="login-form">
       <div class="login-email">
-        <app-input (change)="onChangeEmail($event)" inputLabel="Email" [required]="true"
-          [showRequired]="showEmailRequired" requiredText="Email is required" [value]="data.email">
+        <app-input name="email" formGroupName="email" (change)="onChangeEmail($event)" inputLabel="Email"
+          [required]="true" [showRequired]="showEmailRequired" requiredText="Email is required">
         </app-input>
       </div>
       <div class="login-password">
-        <app-input (change)="onChangePassword($event)" inputLabel="Password" [required]="true"
-          [showRequired]="showPasswordRequired" requiredText="Password is required">
+        <app-input name="password" formGroupName="password" (change)="onChangePassword($event)" inputLabel="Password"
+          [required]="true" [showRequired]="showPasswordRequired" requiredText="Password is required">
         </app-input>
       </div>
       <app-button buttonText="Login" type="submit"></app-button>

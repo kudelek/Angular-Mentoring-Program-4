@@ -24,7 +24,7 @@ app-input {
   flex-flow: column;
 }
 
-.description input {
+.description textarea {
   height: 35vh;
 }
 

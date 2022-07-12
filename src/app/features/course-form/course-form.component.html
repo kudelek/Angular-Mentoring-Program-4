@@ -1,15 +1,15 @@
-<div class="form-container">
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form-container">
   <section class="title-description-create">
     <div class="title-create">
       <span>Title</span>
       <div class="create">
-        <app-input></app-input>
-        <app-button buttonText="Create course"></app-button>
+        <app-input formControlName="title" name="title" (change)="onChangeTitle($event)"></app-input>
+        <app-button buttonText="Create course" type="submit"></app-button>
       </div>
     </div>
     <div class="description">
       <span>Description</span>
-      <input />
+      <textarea formControlName="description" name="description"></textarea>
     </div>
   </section>
   <div class="authors">
@@ -27,7 +27,8 @@
       </div>
       <div class="duration">
         <div class="duration-title">Duration</div>
-        <app-input inputLabel="Duration"></app-input>
+        <app-input inputLabel="Duration" formControlName="duration" name="duration" (change)="onChangeDuration($event)">
+        </app-input>
         <span class="duration-display">
           Duration: {{course.duration}} hours
         </span>

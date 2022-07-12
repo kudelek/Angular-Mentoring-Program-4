@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent, SearchComponent } from './components';
 import { InputComponent } from './components/input/input.component';
@@ -11,7 +12,8 @@ const COMPONENTS: Array<any> = [ButtonComponent, SearchComponent, InputComponent
   declarations: [...COMPONENTS, ValidatorDirective, InputComponent],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [...COMPONENTS]
 })

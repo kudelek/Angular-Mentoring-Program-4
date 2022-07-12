@@ -20,6 +20,9 @@ export class ButtonComponent implements OnInit {
   @Input()
   iconName: string =''
 
+  @Input()
+  type: string = 'button'
+
   @Output() click: any = new EventEmitter();
 
   onClick(e?: MouseEvent) {

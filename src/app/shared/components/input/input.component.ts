@@ -33,10 +33,16 @@ export class InputComponent implements OnInit {
   @Input()
   showRequired?: boolean;
 
+  @Input()
+  name?: string;
+
+  @Input()
+  formGroupName: string = '';
+
 
   @Output() change: any = new EventEmitter();
 
   emitEvent(event: Event) {
-    this.change.emit((event.target as HTMLInputElement).value);
+    this.change.emit((event.target as HTMLInputElement));
   }
 }

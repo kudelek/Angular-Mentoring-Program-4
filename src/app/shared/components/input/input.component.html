@@ -1,7 +1,7 @@
 <label>
   <span>{{inputLabel}}</span>
-  <input [attr.type]="inputType" [attr.required]="required" [attr.placeholder]="inputPlaceholder"
-    (input)="emitEvent($event)" [value]="value" />
+  <input [attr.formGroupName]="formGroupName" [attr.name]="name" [attr.type]="inputType" [attr.required]="required"
+    [attr.placeholder]="inputPlaceholder" (input)="emitEvent($event)" [value]="value" />
   <div *ngIf="showRequired" class="required">
     {{requiredText}}
   </div>
