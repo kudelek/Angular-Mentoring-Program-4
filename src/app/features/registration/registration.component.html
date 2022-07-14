@@ -1,1 +1,24 @@
-<p>registration works!</p>
+<div class="registration-container">
+  <form class="registration" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="registration-title">Registration</div>
+    <div class="registration-form">
+      <div class="registration-name">
+        <app-input name="name" formGroupName="name" (change)="onChangeName($event)" inputLabel="Name" [required]="true"
+          [showRequired]="showNameRequired" requiredText="Name is required"></app-input>
+      </div>
+      <div class="registration-email">
+        <app-input name="email" formGroupName="email" (change)="onChangeEmail($event)" inputLabel="Email"
+          [required]="true" [showRequired]="showEmailRequired" requiredText="Email is required">
+        </app-input>
+      </div>
+      <div class="registration-password">
+        <app-input name="password" formGroupName="password" (change)="onChangePassword($event)" inputLabel="Password"
+          [required]="true" [showRequired]="showPasswordRequired" requiredText="Password is required">
+        </app-input>
+      </div>
+      <app-button buttonText="registration" type="submit"></app-button>
+    </div>
+    <div class="registration-message">Already have an account? You can <a [routerLink]="['/login']"
+        routerLinkActive="router-link-active">Login</a></div>
+  </form>
+</div>

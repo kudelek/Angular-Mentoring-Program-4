@@ -41,7 +41,6 @@ export class CoursesComponent implements OnInit {
   infoTitle: string = 'Your list is empty';
   infoText: string = `Please use the '<strong>Add new course</strong>' button<br/>to add your first course`;
 
-  isLoggedIn: boolean = true;
   isEmpty: boolean = CoursesComponent.length === 0 ? true : false;
 
   courses: any[] = mockedCourseList;
@@ -63,8 +62,5 @@ export class CoursesComponent implements OnInit {
     console.log('show course')
   }
 
-  onLogInOut() {
-
-  }
 
 }

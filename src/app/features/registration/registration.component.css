@@ -1,0 +1,38 @@
+.registration-container {
+  border: 1px black solid;
+}
+
+.registration {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+}
+
+.registration-title {
+  padding: 20px;
+}
+
+label {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  padding: 10px;
+}
+
+app-button {
+  margin-top: 30px;
+}
+
+.registration-message {
+  margin: 30px;
+}
+
+.required {
+  color: red;
+  font-size: 0.75em;
+}
+
+.registration-form app-input {
+  padding: 5px;
+}

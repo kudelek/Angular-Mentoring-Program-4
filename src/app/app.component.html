@@ -1,1 +1,8 @@
-<app-courses></app-courses>
+<app-header>
+  <app-button (click)="onLogInOut()" [buttonText]="!isLoggedIn ? 'Login' : 'Logout'"></app-button>
+  <div *ngIf="isLoggedIn">
+    <span class="username">dummyUserName</span>
+  </div>
+</app-header>
+
+<router-outlet></router-outlet>

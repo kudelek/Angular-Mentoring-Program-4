@@ -1,5 +1,5 @@
 <div class="login-container">
-  <form class="login" [formGroup]="loginForm">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="login-title">Login</div>
     <div class="login-form">
       <div class="login-email">
@@ -14,6 +14,7 @@
       </div>
       <app-button buttonText="Login" type="submit"></app-button>
     </div>
-    <div class="login-message">If you don't have an account, you can <a href="">Register</a></div>
+    <div class="login-message">If you don't have an account, you can <a [routerLink]="['/registration']"
+        routerLinkActive="router-link-active">Register</a></div>
   </form>
 </div>

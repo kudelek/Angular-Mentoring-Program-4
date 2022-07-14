@@ -2,28 +2,24 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { routing } from 'src/app/app.routing';
 import { SharedModule } from '../../shared/shared.module';
 import { CourseCardModule } from '../course-card/course-card.module';
-import { CourseFormComponent } from '../course-form/course-form.component';
-import { HeaderComponent } from '../header/header.component';
 import { InfoComponent } from '../info/info.component';
-import { LoginComponent } from '../login/login.component';
 import { CoursesComponent } from './courses.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
-    HeaderComponent,
     InfoComponent,
-    CourseFormComponent,
-    LoginComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FontAwesomeModule,
     CourseCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   exports: [CoursesComponent],
 })

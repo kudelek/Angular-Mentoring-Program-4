@@ -1,20 +1,10 @@
-<app-header>
-  <app-button (click)="onLogInOut()" [buttonText]="!isLoggedIn ? 'Login' : 'Logout'"></app-button>
-  <div *ngIf="isLoggedIn">
-    <span class="username">dummyUserName</span>
-  </div>
-</app-header>
-
-<!-- <app-search placeholder="Search for courses"></app-search> -->
+<app-search placeholder="Search for courses"></app-search>
 <div *ngIf="courses.length > 0">
   <div class="courses-list" *ngFor="let course of courses">
     <app-course-card (delete)="onCourseDelete()" (edit)="onCourseEdit()" (show)="onShowCourse()" [course]="course">
     </app-course-card>
   </div>
 </div>
-<app-course-form></app-course-form>
-
-<app-login></app-login>
 
 <div *ngIf="courses.length === 0">
   <app-info [title]="infoTitle" [text]="infoText">
