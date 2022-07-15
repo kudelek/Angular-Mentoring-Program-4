@@ -3,17 +3,17 @@
     <div class="registration-title">Registration</div>
     <div class="registration-form">
       <div class="registration-name">
-        <app-input name="name" formGroupName="name" (change)="onChangeName($event)" inputLabel="Name" [required]="true"
-          [showRequired]="showNameRequired" requiredText="Name is required"></app-input>
+        <app-input name="name" [value]="registrationForm.value.name" formGroupName="name"
+          (change)="onChangeName($event)" inputLabel="Name" [required]="true" [errorText]="errorTextName"></app-input>
       </div>
       <div class="registration-email">
         <app-input name="email" formGroupName="email" (change)="onChangeEmail($event)" inputLabel="Email"
-          [required]="true" [showRequired]="showEmailRequired" requiredText="Email is required">
+          [required]="true" [errorText]="errorTextEmail">
         </app-input>
       </div>
       <div class="registration-password">
         <app-input name="password" formGroupName="password" (change)="onChangePassword($event)" inputLabel="Password"
-          [required]="true" [showRequired]="showPasswordRequired" requiredText="Password is required">
+          [required]="true" [errorText]="errorTextPassword">
         </app-input>
       </div>
       <app-button buttonText="registration" type="submit"></app-button>

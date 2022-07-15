@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { emailValidator } from 'src/app/shared/directives/validator.directive';
 
 @Component({
   selector: 'app-registration',
@@ -8,31 +9,29 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
+  registrationForm!: FormGroup;
+
   constructor() { }
 
+  formName = new FormControl('',[Validators.required, Validators.minLength(6)]);
+  formEmail = new FormControl('',[Validators.required, emailValidator()]);
+  formPassword = new FormControl('',[Validators.required]);
+
   ngOnInit(): void {
-  }
 
-  name = new FormControl('');
-  email = new FormControl('');
-  password = new FormControl('');
-
-  registrationForm = new FormGroup({
-    name: this.name,
-    email: this.email,
-    password: this.password
+  this.registrationForm = new FormGroup({
+    name: this.formName,
+    email: this.formEmail,
+    password: this.formPassword
   })
-
-  showRequired = {
-    name: false,
-    email: false,
-    password: false
   }
 
 
-  showNameRequired: boolean = false;
-  showEmailRequired: boolean = false;
-  showPasswordRequired: boolean = false;
+
+
+  errorTextName: string = '';
+  errorTextEmail: string = '';
+  errorTextPassword: string = '';
 
   isEmpty(field: string) {
     console.log(field.length)
@@ -56,7 +55,30 @@ export class RegistrationComponent implements OnInit {
     console.log('registrationForm.value', this.registrationForm.value);
   }
 
+  get name() {
+    return this.registrationForm.get('name');
+  }
+
+  get email() {
+    return this.registrationForm.get('email');
+  }
+
+  get password() {
+    return this.registrationForm.get('password');
+  }
+
+
+
   onSubmit() {
+    if (this.registrationForm.invalid) {
+      console.log('invalid');
+      console.log(this.name);
+      console.log(this.email);
+      console.log(this.password);
+      return;
+    }
+
+
     console.log(this.registrationForm.value)
   }
 
