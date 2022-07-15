@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-form',
@@ -8,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CourseFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +42,7 @@ export class CourseFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.courseForm.value);
+    this.router.navigate(['/'])
   }
 
   onChangeTitle(target: any) {

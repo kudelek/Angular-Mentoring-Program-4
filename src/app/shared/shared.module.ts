@@ -4,12 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent, SearchComponent } from './components';
 import { InputComponent } from './components/input/input.component';
-import { ValidatorDirective } from './directives/validator.directive';
+import { EmailValidatorDirective } from './directives/validator.directive';
 
 const COMPONENTS: Array<any> = [ButtonComponent, SearchComponent, InputComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS, ValidatorDirective, InputComponent],
+  declarations: [...COMPONENTS, EmailValidatorDirective],
   imports: [
     CommonModule,
     FontAwesomeModule,

@@ -6,12 +6,12 @@ import { LoginComponent } from "./features/login/login.component";
 import { RegistrationComponent } from "./features/registration/registration.component";
 
 const appRoutes: Routes = [
-  {path: 'add', component: CourseFormComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'courses', component: CoursesComponent},
-  {path: ':course', component: CourseComponent},
-  {path: 'edit', component: CourseFormComponent},
+  {path: 'courses/add', component: CourseFormComponent},
+  {path: 'courses/:id', component: CourseComponent},
+  {path: 'courses/edit/:id', component: CourseFormComponent},
   {path: '', redirectTo: 'courses', pathMatch: 'full'}
 ];
 

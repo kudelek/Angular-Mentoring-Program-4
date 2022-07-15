@@ -28,7 +28,7 @@ export class InputComponent implements OnInit {
   inputType?: string;
 
   @Input()
-  requiredText?: string;
+  errorText?: string;
 
   @Input()
   showRequired?: boolean;
