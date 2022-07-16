@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { CourseFormComponent } from './features/course-form/course-form.component';
@@ -28,6 +29,7 @@ import { SharedModule } from './shared/shared.module';
     FontAwesomeModule,
     SharedModule,
     ReactiveFormsModule,
+    HttpClientModule,
     routing
   ],
   providers: [],
