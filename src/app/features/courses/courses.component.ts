@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthorsStoreService } from 'src/app/services/authors-store.service';
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
 
 const mockedCourseList = [
   {
@@ -32,19 +35,29 @@ const mockedCourseList = [
 })
 
 export class CoursesComponent implements OnInit {
+  subscription: Subscription;
+  courses: any[] = [];
 
-  constructor() { }
+  constructor(private authorsStoreService: AuthorsStoreService,
+    private coursesStoreService: CoursesStoreService) {
+      console.log('constructor')
+
+      this.subscription = this.coursesStoreService.getAll().subscribe(course => {
+        console.log('courses subscription course',course);
+        this.courses.push(...course.result);
+      })
+    console.log('courses courses: ',this.courses)
+
+  }
 
   ngOnInit(): void {
+
   }
 
   infoTitle: string = 'Your list is empty';
   infoText: string = `Please use the '<strong>Add new course</strong>' button<br/>to add your first course`;
 
   isEmpty: boolean = CoursesComponent.length === 0 ? true : false;
-
-  courses: any[] = mockedCourseList;
-  //courses: any[] = [];
 
   onCourseDelete() {
     console.log('deleted: ');

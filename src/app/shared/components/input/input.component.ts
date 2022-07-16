@@ -25,7 +25,7 @@ export class InputComponent implements OnInit {
   inputPlaceholder?: string;
 
   @Input()
-  inputType?: string;
+  type?: string;
 
   @Input()
   errorText?: string;

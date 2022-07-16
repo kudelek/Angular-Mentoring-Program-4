@@ -15,6 +15,6 @@ const COMPONENTS: Array<any> = [ButtonComponent, SearchComponent, InputComponent
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  exports: [...COMPONENTS]
+  exports: [...COMPONENTS, EmailValidatorDirective]
 })
 export class SharedModule { }

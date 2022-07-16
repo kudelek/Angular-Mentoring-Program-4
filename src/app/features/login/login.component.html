@@ -8,8 +8,9 @@
         </app-input>
       </div>
       <div class="login-password">
-        <app-input name="password" formGroupName="password" (change)="onChangePassword($event)" inputLabel="Password"
-          [required]="true" [showRequired]="showPasswordRequired" requiredText="Password is required">
+        <app-input name="password" formGroupName="password" type="password" (change)="onChangePassword($event)"
+          inputLabel="Password" [required]="true" [showRequired]="showPasswordRequired"
+          requiredText="Password is required">
         </app-input>
       </div>
       <app-button buttonText="Login" type="submit"></app-button>

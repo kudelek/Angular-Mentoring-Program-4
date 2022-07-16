@@ -1,0 +1,13 @@
+.flex-row {
+  display: flex;
+  flex-flow: row;
+}
+
+.left {
+  width: 80%;
+}
+
+.right {
+  align-self: center;
+  text-align: center;
+}

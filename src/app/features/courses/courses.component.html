@@ -1,4 +1,7 @@
-<app-search placeholder="Search for courses"></app-search>
+<div class="flex-row">
+  <app-search class="left" placeholder="Search for courses"></app-search>
+  <app-button class="right" buttonText="Create course" [routerLink]="['/courses/add']"></app-button>
+</div>
 <div *ngIf="courses.length > 0">
   <div class="courses-list" *ngFor="let course of courses">
     <app-course-card (delete)="onCourseDelete()" (edit)="onCourseEdit()" (show)="onShowCourse()" [course]="course">
