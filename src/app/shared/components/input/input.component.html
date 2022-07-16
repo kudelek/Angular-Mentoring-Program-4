@@ -1,0 +1,8 @@
+<label>
+  <span>{{inputLabel}}</span>
+  <input [attr.formGroupName]="formGroupName" [attr.name]="name" [attr.type]="inputType" [attr.required]="required"
+    [attr.placeholder]="inputPlaceholder" (input)="emitEvent($event)" [value]="value" />
+  <div *ngIf="errorText" class="required">
+    {{errorText}}
+  </div>
+</label>

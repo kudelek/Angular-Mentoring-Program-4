@@ -1,0 +1,17 @@
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info-container {
+  margin: 10px;
+}
+
+.info-type {
+  width: 50%;
+  font-weight: bold;
+}
+
+.info-content {
+  width: 50%;
+}

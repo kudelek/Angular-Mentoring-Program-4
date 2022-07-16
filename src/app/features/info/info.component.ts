@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-info',
@@ -7,11 +6,16 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  faCoffee = faCoffee
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  @Input()
+  title: string = '';
+
+  @Input()
+  text?: string;
 
 }

@@ -1,2 +1,15 @@
-<p>course-card works!</p>
-<app-info></app-info>
+<div class="card-container">
+  <div class="left">
+    <h2 class="title">{{course.title}}</h2>
+    <div class="description">{{course.description}}</div>
+  </div>
+  <div class="right">
+    <app-course-info [creationDate]="course.creationDate" [authors]="course.authors" [duration]="course.duration">
+    </app-course-info>
+    <div class="card-buttons">
+      <app-button (click)="onShowCourse()" buttonText="Show course"></app-button>
+      <app-button (click)="onEdit()" *ngIf="isEditable" iconName="edit"></app-button>
+      <app-button (click)="onDelete()" *ngIf="isEditable" iconName="delete"></app-button>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,14 @@
-<app-header>
-  <app-button *ngIf="isLoggedIn" iconName="edit">
-  </app-button>
-  <div *ngIf="isLoggedIn">
-    <span>Login</span>
+<app-search placeholder="Search for courses"></app-search>
+<div *ngIf="courses.length > 0">
+  <div class="courses-list" *ngFor="let course of courses">
+    <app-course-card (delete)="onCourseDelete()" (edit)="onCourseEdit()" (show)="onShowCourse()" [course]="course">
+    </app-course-card>
   </div>
-</app-header>
-<app-course-card></app-course-card>
+</div>
+
+<div *ngIf="courses.length === 0">
+  <app-info [title]="infoTitle" [text]="infoText">
+    <app-button (click)="onAddCourse()" buttonText="Add a new course">
+    </app-button>
+  </app-info>
+</div>

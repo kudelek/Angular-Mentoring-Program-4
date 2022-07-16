@@ -13,18 +13,21 @@ export class CourseCardComponent implements OnInit {
   }
 
   @Input()
-  title: string = ''
+  course: any;
 
   @Input()
-  description: string = ''
+  isEditable: boolean = true
 
-  // @Input()
-  // creationDate: Date =
+  onDelete() {
+    console.log("Delete course", this.course);
+  }
 
-  @Input()
-  duration: number = 0
+  onEdit() {
+    console.log("Edit course", this.course);
+  }
 
-  @Input()
-  authors: string[] = []
+  onShowCourse() {
+    console.log("Show course", this.course);
+  }
 
 }

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faBug, faPencil, faTrashCan, faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-button',
@@ -20,16 +20,29 @@ export class ButtonComponent implements OnInit {
   @Input()
   iconName: string =''
 
-  hasIcon: boolean = this.iconName != ''
+  @Input()
+  type: string = 'button'
 
-  getIcon(_iconName: string): any {
-    switch (_iconName) {
-      case "edit":
-        return faPencil
-      case "delete":
-        return faTrashCan
+  @Output() click: any = new EventEmitter();
+
+  onClick(e?: MouseEvent) {
+    this.click.emit(e);
+  }
+
+  faPencil = faPencil
+  faTrashcan = faTrashCan
+  faX = faX
+
+  getIcon(iconName: string) {
+    switch (iconName) {
+      case 'edit':
+        return faPencil;
+      case 'delete':
+        return faTrashCan;
+      case 'close':
+        return faX;
       default:
-        break;
+        return faBug;
     }
   }
 

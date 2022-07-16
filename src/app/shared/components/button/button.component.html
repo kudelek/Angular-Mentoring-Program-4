@@ -1,4 +1,6 @@
-<button>
-  <fa-icon *ngIf="hasIcon" [icon]="getIcon(iconName)"></fa-icon>
+<button [attr.type]="type" (click)="onClick($event)">
+  <div *ngIf="iconName.length > 0" class="icon">
+    <fa-icon [icon]="getIcon(iconName)"></fa-icon>
+  </div>
   {{buttonText}}
 </button>
