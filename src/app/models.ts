@@ -6,3 +6,13 @@ export interface Course {
   duration: number,
   authors: string[]
 }
+
+export interface User {
+  id: string,
+  name: string,
+}
+
+export interface Result {
+  result: any,
+  successful: boolean,
+}
