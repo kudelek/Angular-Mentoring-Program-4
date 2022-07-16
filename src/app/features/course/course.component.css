@@ -1,0 +1,25 @@
+.course-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border: black solid 1px;
+  margin: 10px;
+  min-height: 60vh;
+}
+
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+}
+
+.title {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.description {
+  margin: 5px;
+}
