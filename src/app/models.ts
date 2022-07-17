@@ -3,7 +3,7 @@ export interface Course {
   title: string,
   description: string,
   creationDate: string,
-  duration: number,
+  duration: string,
   authors: string[]
 }
 

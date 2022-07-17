@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Course } from '../models';
 import { CoursesService } from './courses.service';
 
 @Injectable({
@@ -19,5 +20,9 @@ export class CoursesStoreService {
 
   getCourse(id: string) {
     return this.coursesService.get(`courses/${id}`)
+  }
+
+  addCourse(course: Course) {
+    return this.coursesService.add(course)
   }
 }

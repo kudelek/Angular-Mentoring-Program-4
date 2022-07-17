@@ -17,15 +17,15 @@ export class CourseInfoComponent implements OnInit {
   creationDate: string = ''
 
   @Input()
-  duration: number = 0
+  duration: string = '0'
 
   @Input()
   authors: string[] = []
 
-  getDuration(_duration: number) {
+  getDuration(_duration: any) {
     return `${Math.floor(_duration/60)}:${_duration%60}`;
   }
 
-  
+
 
 }

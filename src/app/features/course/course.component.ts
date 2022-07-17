@@ -16,7 +16,7 @@ export class CourseComponent implements OnInit {
     title: "",
     description: "",
     creationDate: "",
-    duration: 0,
+    duration: "0",
     authors: []
   }
   id: string = '';
