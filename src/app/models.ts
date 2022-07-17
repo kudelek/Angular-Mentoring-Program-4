@@ -16,3 +16,14 @@ export interface Result {
   result: any,
   successful: boolean,
 }
+
+export interface UserResult {
+  result: any,
+  successful: boolean,
+  user: any,
+}
+
+export interface Author {
+  id: string,
+  name: string
+}

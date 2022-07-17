@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
+import { SessionStorageService } from './auth/services/session-storage.service';
 import { CourseFormComponent } from './features/course-form/course-form.component';
 import { CourseComponent } from './features/course/course.component';
 import { CoursesModule } from './features/courses/courses.module';
@@ -32,7 +33,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [SessionStorageService, Window],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

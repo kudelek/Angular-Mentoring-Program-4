@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { SessionStorageService } from 'src/app/auth/services/session-storage.service';
 import { emailValidator } from 'src/app/shared/directives/validator.directive';
 
 @Component({
@@ -15,7 +16,7 @@ import { emailValidator } from 'src/app/shared/directives/validator.directive';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private sessionStorage: SessionStorageService) { }
 
   ngOnInit(): void {
   }
@@ -35,14 +36,10 @@ export class LoginComponent implements OnInit {
 
   onChangeEmail(target: any) {
     this.loginForm.value.email = typeof target.value === "string" ? target.value : this.loginForm.value.email;
-    console.log('loginForm.value', this.loginForm.value);
-    console.log(target)
   }
 
   onChangePassword(target: any) {
     this.loginForm.value.password = typeof target.value === "string" ? target.value : this.loginForm.value.password;
-    console.log('loginForm.value', this.loginForm.value);
-    console.log(target)
   }
 
   onSubmit() {
@@ -61,8 +58,9 @@ export class LoginComponent implements OnInit {
 
     this.subscription = this.authService.authenticate(this.loginForm.value.email as string, this.loginForm.value.password as string).subscribe(res => {
       if(res.successful){
-        this.authService.setUser(res.result.email);
-        this.router.navigate(['courses'])
+        console.log('login res', res)
+        this.authService.setUser(res.result);
+        this.router.navigate(['courses']);
       }
 
     })

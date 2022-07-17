@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthorsStoreService } from 'src/app/services/authors-store.service';
 
 @Component({
   selector: 'app-course-info',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CourseInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authorsService: AuthorsStoreService) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +25,7 @@ export class CourseInfoComponent implements OnInit {
   getDuration(_duration: number) {
     return `${Math.floor(_duration/60)}:${_duration%60}`;
   }
+
+  
 
 }

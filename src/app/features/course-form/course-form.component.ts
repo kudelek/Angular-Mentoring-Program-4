@@ -18,7 +18,7 @@ export class CourseFormComponent implements OnInit {
 
   title = new FormControl('')
   descriptioon = new FormControl('')
-  duration = new FormControl('', Validators.compose([Validators.min(1)]))
+  duration = new FormControl('', Validators.compose([Validators.min(10)]))
   authors = new FormControl('')
 
   courseForm = new FormGroup({
@@ -41,8 +41,9 @@ export class CourseFormComponent implements OnInit {
   ]
 
   onSubmit() {
+    console.log(this.courseForm.errors)
     console.log(this.courseForm.value);
-    this.router.navigate(['/'])
+    //this.router.navigate(['/'])
   }
 
   onChangeTitle(target: any) {

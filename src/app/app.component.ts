@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from './auth/services/auth.service';
 import { SessionStorageService } from './auth/services/session-storage.service';
 
@@ -7,25 +8,37 @@ import { SessionStorageService } from './auth/services/session-storage.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [Window]
 })
 export class AppComponent implements OnInit {
-  userName?: string;
+  user = new Observable;
   title = 'courses-app';
+  subscription = new Subscription;
   isLoggedIn: boolean = false;
+  userName?: string;
 
   constructor(private router: Router,
-    private sessionStorage: SessionStorageService, private authService: AuthService) {}
+    private sessionStorage: SessionStorageService, public authService: AuthService) {
+      this.subscription = this.authService.isLoggedIn.subscribe(res => {
+        this.isLoggedIn = res as boolean
+        console.log('constructor isLoggedIn', res)
+      });
+
+    }
 
   ngOnInit(): void {
-    console.log('init')
-    this.sessionStorage.isLoggedIn.subscribe(res => this.isLoggedIn = res as boolean);
-    this.sessionStorage.token.subscribe(res => {
-      this.authService.getLoggedUser(res as string).subscribe(res => console.log('user: ',res))
+    this.user = this.authService.getLoggedUser(this.sessionStorage.getToken() as string)
+    this.authService.getLoggedUser(this.sessionStorage.getToken() as string).subscribe(res => {
+      if (res.successful) {
+        console.log('init res', res)
+        this.userName = res.result.name
+        this.authService.isLoggedIn.next(true)
+      }
     })
   }
 
   onLogInOut() {
-    this.router.navigate(['/login']);
+    this.authService.logoutUser();
   }
 
 }
