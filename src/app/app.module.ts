@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { SessionStorageService } from './auth/services/session-storage.service';
@@ -14,6 +16,7 @@ import { HeaderComponent } from './features/header/header.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegistrationComponent } from './features/registration/registration.component';
 import { SharedModule } from './shared/shared.module';
+import { effects, reducers } from './store';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
-    routing
+    routing,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects)
   ],
   providers: [SessionStorageService, Window],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@ export interface Course {
 }
 
 export interface User {
-  id: string,
+  isAdmin: boolean,
   name: string,
 }
 
