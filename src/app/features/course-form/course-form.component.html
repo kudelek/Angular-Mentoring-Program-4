@@ -3,7 +3,9 @@
     <div class="title-create">
       <span>Title</span>
       <div class="create">
-        <app-input formControlName="title" name="title" (change)="onChangeTitle($event)"></app-input>
+        <div class="input-label">
+          <input type="text" name="title" formControlName="title">
+        </div>
         <app-button buttonText="Create course" type="submit"></app-button>
       </div>
     </div>
@@ -20,15 +22,19 @@
         </div>
         <div class="add-author-create">
           <div class="add-author-name">
-            <app-input inputLabel="Author name"></app-input>
+            <div>Author</div>
+            <div class="input-label">
+              <input type="text" name="author">
+            </div>
           </div>
           <app-button buttonText="Create author"></app-button>
         </div>
       </div>
       <div class="duration">
-        <div class="duration-title">Duration</div>
-        <app-input inputLabel="Duration" formControlName="duration" name="duration" (change)="onChangeDuration($event)">
-        </app-input>
+        <div class="input-label">
+          <div>Duration</div>
+          <input type="number" name="duration" formControlName="duration">
+        </div>
         <span class="duration-display">
           Duration: {{course.duration}} hours
         </span>

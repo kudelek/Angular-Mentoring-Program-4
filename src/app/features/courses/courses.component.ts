@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/models';
 import { AuthorsStoreService } from 'src/app/services/authors-store.service';
 import { CoursesStoreService } from 'src/app/services/courses-store.service';
+import { requestCurrentUser } from 'src/app/user/store/user.actions';
+import { selectUser } from 'src/app/user/store/user.selectors';
 
 const mockedCourseList = [
   {
@@ -36,10 +40,13 @@ const mockedCourseList = [
 
 export class CoursesComponent implements OnInit {
   subscription: Subscription;
+  user$: Observable<User> = this.store.select(selectUser);
   courses: any[] = [];
 
-  constructor(private authorsStoreService: AuthorsStoreService,
-    private coursesStoreService: CoursesStoreService) {
+  constructor(
+    private authorsStoreService: AuthorsStoreService,
+    private coursesStoreService: CoursesStoreService,
+    private store: Store<{user: User}>) {
       console.log('constructor')
 
       this.subscription = this.coursesStoreService.getAll().subscribe(course => {
@@ -51,7 +58,9 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log()
+    this.store.dispatch(requestCurrentUser());
+    this.user$.subscribe(u => console.log("onInit user state", u))
   }
 
   infoTitle: string = 'Your list is empty';

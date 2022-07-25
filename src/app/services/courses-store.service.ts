@@ -15,11 +15,11 @@ export class CoursesStoreService {
 
   getAll() {
     console.log('getAll');
-    return this.coursesService.get('courses/all');
+    return this.coursesService.get('all');
   }
 
   getCourse(id: string) {
-    return this.coursesService.get(`courses/${id}`)
+    return this.coursesService.get(id)
   }
 
   addCourse(course: Course) {

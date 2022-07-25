@@ -22,7 +22,7 @@ export class CourseFormComponent implements OnInit {
   title = new FormControl('')
   descriptioon = new FormControl('')
   duration = new FormControl('', Validators.compose([Validators.min(10)]))
-  authors = new FormControl([''])
+  authors = new FormControl([])
   creationDate = new FormControl('')
   id = new FormControl('')
 

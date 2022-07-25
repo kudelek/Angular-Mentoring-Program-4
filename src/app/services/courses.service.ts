@@ -8,7 +8,7 @@ import { Course } from '../models';
   providedIn: 'root'
 })
 export class CoursesService {
-  baseUrl: string = "http://localhost:4000";
+  baseUrl: string = "http://localhost:4000/courses";
   courses = new Subject;
 
   constructor(private httpClient: HttpClient, private sessionService: SessionStorageService) { }
@@ -19,7 +19,7 @@ export class CoursesService {
   }
 
   add(course: Course) {
-    return this.httpClient.post<Course>(`${this.baseUrl}/add`, course, {headers: {Authorization: this.token as string}})
+    this.httpClient.post<Course>(`${this.baseUrl}/add`, course, {headers: {Authorization: this.token as string}}).subscribe(e => console.log(e))
   }
 
 
