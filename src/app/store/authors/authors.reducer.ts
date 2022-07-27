@@ -2,7 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { Author } from "../../models";
 import { requestAddAuthorFail, requestAddAuthorSuccess, requestAuthorsFail, requestAuthorsSuccess, resetAddedAuthor } from "./authors.actions";
 
-export const userFeatureKey = "authors"
+export const authorsFeatureKey = "authors"
 
 export interface AuthorsState {
   authors: Author[],
