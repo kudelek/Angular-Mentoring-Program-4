@@ -9,10 +9,18 @@ const initialState: User = {
   name: ''
 }
 
-const reducer = createReducer(
+export const userReducer = createReducer(
   initialState,
-  on(requestCurrentUserSuccess, (state, {user}) => ({...user})),
-  on(requestCurrentUserFail, (state) => ({isAdmin: false, name: ''}) ),
+  on(requestCurrentUserSuccess, (state, {user}): User => {
+    return {
+      ...state,
+      ...user
+    }}),
+  on(requestCurrentUserFail, (state) => {
+    return {
+      ...state,
+      isAdmin: false,
+      name: ''
+    }
+  }),
 );
-
-export const userReducer = (state: User, action: any): User => reducer(state, action);

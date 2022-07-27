@@ -1,7 +1,7 @@
 import { createSelector } from "@ngrx/store";
 import { User } from "../../models";
 
-export const selectUser = (state: any) => state.user
+export const selectUser = (state: any) => state.user;
 
 export const getName = createSelector(
   selectUser,
