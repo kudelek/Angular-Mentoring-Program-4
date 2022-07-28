@@ -1,7 +1,7 @@
 <app-header>
-  <app-button (click)="onLogInOut()" [buttonText]="!isLoggedIn ? 'Login' : 'Logout'"></app-button>
-  <div *ngIf="isLoggedIn">
-    <span class="username">dummyUserName</span>
+  <app-button (click)="onLogInOut()" [buttonText]="(authService.isLogged$| async) ? 'Login' : 'Logout'"></app-button>
+  <div *ngIf="(authService.isLogged$ | async)">
+    <span class="username">{{userName}}</span>
   </div>
 </app-header>
 

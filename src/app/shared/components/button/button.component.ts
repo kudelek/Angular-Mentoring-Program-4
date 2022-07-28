@@ -15,7 +15,7 @@ export class ButtonComponent implements OnInit {
   }
 
   @Input()
-  buttonText: string = ''
+  buttonText?: string | null
 
   @Input()
   iconName: string =''

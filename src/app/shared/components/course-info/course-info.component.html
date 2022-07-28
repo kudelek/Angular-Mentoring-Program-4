@@ -9,6 +9,6 @@
   </div>
   <div class="info">
     <div class="info-type">Authors:</div>
-    <div class="info-content">{{authors}}</div>
+    <div class="info-content" *ngFor="let authorId of authors">{{authorId}}</div>
   </div>
 </div>

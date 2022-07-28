@@ -1,1 +1,10 @@
-<p>course works!</p>
+<div class="course-container">
+  <div class="left">
+    <h2 class="title">{{course.title}}</h2>
+    <div class="description">{{course.description}}</div>
+  </div>
+  <div class="right">
+    <app-course-info [creationDate]="course.creationDate" [authors]="course.authors" [duration]="course.duration">
+    </app-course-info>
+  </div>
+</div>

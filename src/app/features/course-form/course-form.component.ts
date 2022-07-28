@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Course } from 'src/app/models';
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
 
 @Component({
   selector: 'app-course-form',
@@ -10,7 +12,8 @@ import { Router } from '@angular/router';
 export class CourseFormComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private coursesStoreService: CoursesStoreService
   ) { }
 
   ngOnInit(): void {
@@ -18,14 +21,19 @@ export class CourseFormComponent implements OnInit {
 
   title = new FormControl('')
   descriptioon = new FormControl('')
-  duration = new FormControl('', Validators.compose([Validators.min(1)]))
-  authors = new FormControl('')
+  duration = new FormControl('', Validators.compose([Validators.min(10)]))
+  authors = new FormControl([])
+  creationDate = new FormControl('')
+  id = new FormControl('')
+
 
   courseForm = new FormGroup({
     title: this.title,
     description: this.descriptioon,
     duration: this.duration,
-    authors: this.authors
+    authors: this.authors,
+    creationDate: this.creationDate,
+    id: this.id,
   })
 
   course: any = {
@@ -41,8 +49,11 @@ export class CourseFormComponent implements OnInit {
   ]
 
   onSubmit() {
+    console.log(this.courseForm.errors)
     console.log(this.courseForm.value);
-    this.router.navigate(['/'])
+    this.coursesStoreService.addCourse(this.courseForm.value as Course)
+
+    //this.router.navigate(['/'])
   }
 
   onChangeTitle(target: any) {
